@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Metallic blue color scheme for aluminum manufacturing */
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Primary: Deep metallic blue */
+    --primary: 215 45% 25%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 215 60% 40%;
+
+    /* Secondary: Silver/gray tones */
+    --secondary: 210 15% 85%;
+    --secondary-foreground: 215 25% 15%;
+
+    --muted: 210 20% 92%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Accent: Golden highlight */
+    --accent: 45 90% 60%;
+    --accent-foreground: 215 25% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 25% 88%;
+    --input: 214.3 25% 88%;
+    --ring: 215 45% 35%;
+
+    --radius: 0.75rem;
+
+    /* Gradients for metallic effects */
+    --gradient-primary: linear-gradient(135deg, hsl(215 45% 25%) 0%, hsl(215 60% 35%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(210 15% 85%) 0%, hsl(210 20% 92%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(215 45% 20%) 0%, hsl(215 50% 30%) 50%, hsl(215 45% 25%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px hsla(215, 45%, 25%, 0.08);
+    --shadow-md: 0 4px 16px hsla(215, 45%, 25%, 0.12);
+    --shadow-lg: 0 8px 32px hsla(215, 45%, 25%, 0.16);
+    --shadow-glow: 0 0 40px hsla(215, 60%, 40%, 0.3);
+  }
+
+  .dark {
+    --background: 215 30% 10%;
+    --foreground: 210 40% 98%;
+
+    --card: 215 25% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 215 25% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 215 60% 50%;
+    --primary-foreground: 210 40% 98%;
+    --primary-glow: 215 70% 60%;
+
+    --secondary: 215 20% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 20% 18%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 45 85% 55%;
+    --accent-foreground: 215 25% 15%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 20% 22%;
+    --input: 215 20% 22%;
+    --ring: 215 60% 50%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(215 60% 40%) 0%, hsl(215 70% 50%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(215 20% 18%) 0%, hsl(215 25% 25%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(215 40% 15%) 0%, hsl(215 50% 25%) 50%, hsl(215 45% 20%) 100%);
+    
+    --shadow-sm: 0 2px 8px hsla(0, 0%, 0%, 0.3);
+    --shadow-md: 0 4px 16px hsla(0, 0%, 0%, 0.4);
+    --shadow-lg: 0 8px 32px hsla(0, 0%, 0%, 0.5);
+    --shadow-glow: 0 0 40px hsla(215, 70%, 50%, 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  /* RTL Support */
+  [dir="rtl"] {
+    direction: rtl;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-primary-glow to-primary bg-clip-text text-transparent;
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+}
